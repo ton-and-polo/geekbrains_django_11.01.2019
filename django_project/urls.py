@@ -22,7 +22,7 @@ from pages.views import index_view, contacts_view, about_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_view),
-    path('contacts/', contacts_view),
-    path('about/', about_view),
+    path('', index_view, name="home"),
+    path('contacts/', contacts_view, name="contacts"),
+    path('about/', about_view, name="about"),
 ]
