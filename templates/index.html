@@ -3,4 +3,14 @@
 {%  block content %}
     <h1>Home page</h1>
     <p>This is home page.</p>
+
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.name }}.</p>
+    {% endif %}
+
+    <p>My list: {{ my_list }}</p>
+
+    <p>{% lorem %}</p>
+
+
 {% endblock %}

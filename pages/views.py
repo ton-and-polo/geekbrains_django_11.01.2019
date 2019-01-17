@@ -4,15 +4,22 @@ from django.shortcuts import render
 
 
 def index_view(request, *args, **kwargs):
-    context = {}
+    context = {
+        "title": "home",
+        "my_list": [1, 2, 3]
+    }
     return render(request, "index.html", context)
 
 
 def contacts_view(request, *args, **kwargs):
-    context = {}
+    context = {
+        "title": "contacts",
+    }
     return render(request, "contacts.html", context)
 
 
 def about_view(request, *args, **kwargs):
-    context = {}
+    context = {
+        "title": "about",
+    }
     return render(request, "about.html", context)
