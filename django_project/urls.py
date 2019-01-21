@@ -16,8 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Media:
+from django.conf import settings
+from django.conf.urls.static import static
+
 # My own imports:
-from pages.views import index_view, contacts_view, about_view
+from pages.views import (
+    index_view,
+    contacts_view,
+    about_view
+)
 
 
 urlpatterns = [
@@ -26,3 +34,7 @@ urlpatterns = [
     path('contacts/', contacts_view, name="contacts"),
     path('about/', about_view, name="about"),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
