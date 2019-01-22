@@ -12,7 +12,8 @@ def products_list_view(request):
     return render(request, "products/products_list.html", context)
 
 def product_details_view(request ,id):
-    product = Product.objects.get(id=id)
+    #product = Product.objects.get(id=id)
+    product = get_object_or_404(Product, id=id)
     context = {
         "product": product
     }
