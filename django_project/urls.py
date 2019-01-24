@@ -37,7 +37,8 @@ urlpatterns = [
     path('about/', about_view, name="about"),
 
     # Apps:
-    path('products/', include('products.urls'))
+    path('products/', include('products.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 
