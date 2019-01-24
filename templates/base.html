@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="register">
-        <a href="{% url 'accounts:register' %}">register</a>
-    </div>
+    <a href="{% url 'accounts:login' %}">login</a>
 
     <div class="navbar">
         {% include "navbar.html" %}
