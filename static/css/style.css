@@ -7,13 +7,17 @@ a {
   text-decoration: none
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.login {
+  margin: 20px;
 }
 
-.product_thumbnail {
+.thumbnail {
   width: 100px;
+}
+
+.thumbnail img {
+  max-width: 100%;
+  height: auto;
 }
 
 .date p {

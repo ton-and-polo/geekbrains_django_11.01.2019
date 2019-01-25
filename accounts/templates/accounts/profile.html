@@ -1,1 +1,12 @@
-<p>Hello, {{ user.username }}!</p>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <div class="thumbnail">
+        <img src="{{ user.profile.user_avatar.url }}" alt="user_avatar">
+    </div>
+    <p>Hello, {{ user.username }}!</p>
+    <p>Your age: {{ user.profile.age }}</p>
+
+
+{% endblock %}

@@ -4,7 +4,8 @@
     <h1>Product details</h1>
     <p>{{ product.title }} </p>
     <p>{{ product.price }} </p>
-    <div class="product_thumbnail">
+    <p>{{ product.category }} </p>
+    <div class="thumbnail">
         <img src="{{ product.image.url }}" alt="{{ product.title }}">
     </div>
     <a href="{% url 'products:products-list' %}">Back</a>

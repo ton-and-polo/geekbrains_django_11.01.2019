@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <a href="{% url 'accounts:login' %}">login</a>
-
+    <div class="login">
+        <a href="{% url 'accounts:login' %}">login</a>
+    </div>
+    
     <div class="navbar">
         {% include "navbar.html" %}
     </div>
