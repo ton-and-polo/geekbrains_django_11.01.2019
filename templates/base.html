@@ -14,10 +14,16 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+
     <div class="login">
-        <a href="{% url 'accounts:login' %}">login</a>
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}</p>
+        {% else %}
+            <a href="{% url 'login' %}">login</a>
+        {% endif %}
     </div>
-    
+
+
     <div class="navbar">
         {% include "navbar.html" %}
     </div>
