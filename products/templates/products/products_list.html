@@ -2,12 +2,43 @@
 
 {% block content %}
     <h1>Products</h1>
+    <h3>Categories</h3>
+        <ul>
+            <li><a href="#">All</a></li>
+            {% for category in categories %}
+            <li>
+                <a href="#">{{ category }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+
+    <h3>Products:</h3>
     <ul>
         {% for product in products %}
             <li>
                 <a href="{{ product.get_absolute_url }}">
                     {{ product.title }}
                 </a>
+
+                {% for i in user_cart %}
+                    {% if i.product.id == product.id %}
+                        <p>{{ i.quantity }}</p>
+                    {% endif %}
+                {% endfor %}
+
+                <br>
+                <button>
+                    <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
+                        Add to cart
+                    </a>
+                </button>
+                <br>
+                <button>
+                    <a href="{% url 'shopping_cart:remove_from_cart' product.id %}">
+                        Remove from cart
+                    </a>
+                </button>
             </li>
         {% endfor %}
     </ul>

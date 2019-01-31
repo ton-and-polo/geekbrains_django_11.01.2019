@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # My own apps:
     'products',
     'accounts',
+    'shopping_cart',
 
 ]
 

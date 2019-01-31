@@ -39,6 +39,7 @@ urlpatterns = [
     # Apps:
     path('products/', include('products.urls')),
     path('accounts/', include('accounts.urls')),
+    path('cart/', include('shopping_cart.urls')),
 
     path('accounts/', include('django.contrib.auth.urls')),  # default auth.urls
 ]
