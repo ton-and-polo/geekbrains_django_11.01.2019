@@ -2,12 +2,12 @@
 
 {% block content %}
     <h1>Products</h1>
-    <h3>Categories</h3>
+    <h3>Categories:</h3>
         <ul>
-            <li><a href="#">All</a></li>
+            <li><a href="{% url 'products:products-list' all_products %}">All</a></li>
             {% for category in categories %}
             <li>
-                <a href="#">{{ category }}</a>
+                <a href="{% url 'products:products-list' category %}">{{ category }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -27,13 +27,12 @@
                     {% endif %}
                 {% endfor %}
 
-                <br>
+
                 <button>
                     <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
                         Add to cart
                     </a>
                 </button>
-                <br>
                 <button>
                     <a href="{% url 'shopping_cart:remove_from_cart' product.id %}">
                         Remove from cart
