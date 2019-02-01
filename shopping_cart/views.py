@@ -11,8 +11,9 @@ def cart(request):
     price = 0
     amount = 0
     for order in user_cart:
-        price += order.product.price
+        price += order.product.price * order.quantity
         amount += order.quantity
+
     context = {
         'user_cart': user_cart,
         'price': price,
