@@ -137,4 +137,5 @@ LOGOUT_REDIRECT_URL = 'home'
 
 #AUTH_USER_MODEL = 'my_app.MyClass'
 
-#TEMPLATE_CONTEXT_PROCESSORS = ("shopping_cart.context_processors.cart_processor", )
+TEMPLATES[0]['OPTIONS']['context_processors'].append("shopping_cart.context_processors.cart_processor")
+TEMPLATE_CONTEXT_PROCESSORS = ("shopping_cart.context_processors.cart_processor", )
