@@ -10,9 +10,11 @@
                     Cart
                 </a>
                 <div class="cart_badge absolute">
-                    <span>
-                        {{ total_quantity }}
-                    </span>
+                    {% if total_quantity != 0 %}
+                        <span>
+                            {{ total_quantity }}
+                        </span>
+                    {% endif %}
                 </div>
             </li>
         </div>
