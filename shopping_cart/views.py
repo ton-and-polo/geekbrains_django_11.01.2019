@@ -1,10 +1,23 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 from .models import ShoppingCart
 from products.models import Product
 
-
+@login_required
 def cart(request):
-    context = {}
+    user_cart = ShoppingCart.objects.filter(user=request.user)
+
+    price = 0
+    amount = 0
+    for order in user_cart:
+        price += order.product.price
+        amount += order.quantity
+    context = {
+        'user_cart': user_cart,
+        'price': price,
+        'amount': amount
+    }
     return render(request, 'shopping_cart/cart.html', context)
 
 

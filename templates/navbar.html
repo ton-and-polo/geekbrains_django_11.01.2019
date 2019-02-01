@@ -4,5 +4,18 @@
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'contacts' %}">Contacts</a></li>
         <li><a href="{% url 'products:products-list' 'all' %}">Products</a></li>
+        <div class="relative">
+            <li>
+                <a href="{% url 'shopping_cart:items-in-cart' %}">
+                    Cart
+                </a>
+                <div class="cart_badge absolute">
+                    <span>
+                        {{ cart_amount }}
+                    </span>
+                </div>
+            </li>
+        </div>
+
     </ul>
 </nav>

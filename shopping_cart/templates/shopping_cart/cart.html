@@ -1,1 +1,35 @@
-<h1>Cart - test</h1>
+{% extends "base.html" %}
+
+{%  block content%}
+    <h1>Cart</h1>
+
+    <h3>Items:</h3>
+    <ul>
+        {% for order in  user_cart %}
+            <li>
+                {{ order.product.title }}, amount: {{ order.quantity }}
+                {% if order.quantity <= 1 %}
+                    pc
+                {% else %}
+                    pcs
+                {% endif %}
+                <button>
+                    <a href="{% url 'shopping_cart:add_to_cart' order.product.id %}">
+                        Add
+                    </a>
+                </button>
+                <button>
+                    <a href="{% url 'shopping_cart:remove_from_cart' order.product.id %}">
+                        Remove
+                    </a>
+                </button>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        All items: {{ amount }}, USD {{ price }}
+    </p>
+
+
+{% endblock %}

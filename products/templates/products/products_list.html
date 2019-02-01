@@ -21,23 +21,12 @@
                     {{ product.title }}
                 </a>
 
-                {% for i in user_cart %}
-                    {% if i.product.id == product.id %}
-                        <p>{{ i.quantity }}</p>
-                    {% endif %}
-                {% endfor %}
-
-
                 <button>
                     <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
-                        Add to cart
+                        Buy
                     </a>
                 </button>
-                <button>
-                    <a href="{% url 'shopping_cart:remove_from_cart' product.id %}">
-                        Remove from cart
-                    </a>
-                </button>
+
             </li>
         {% endfor %}
     </ul>

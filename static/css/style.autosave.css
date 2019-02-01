@@ -40,22 +40,6 @@ a {
 }
 
 .cart_badge span {
-  padding: 2px 3px;
-  border-radius: 30px;
-  background-color: red;
-  color: white;
-  font-size: 12px;
-}
-
-.cart_badge {
-  top: 0px;
-  left: 45px;
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
+  border: 1px solid red;
+  padding: 3px;
 }
