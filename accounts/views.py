@@ -14,11 +14,7 @@ def register_view(request):
         user_form = UserCreationForm(request.POST)
         if user_form.is_valid():
             user_form.save()
-            # Authenticate new user:
-            new_user = authenticate(
-                user_name=user_form.cleaned_data['username'],
-                password=user_form.cleaned_data['password1'],
-            )
+            new_user = user_form.save()
             # Login your new user:
             login(request, new_user)
             return redirect('accounts:profile')
