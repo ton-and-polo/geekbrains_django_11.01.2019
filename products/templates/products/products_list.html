@@ -21,11 +21,13 @@
                     {{ product.title }}
                 </a>
 
-                <button>
-                    <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
-                        Buy
-                    </a>
-                </button>
+                {% if user.is_authenticated %}
+                    <button>
+                        <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
+                            Buy
+                        </a>
+                    </button>
+                {% endif %}
 
             </li>
         {% endfor %}
