@@ -1,0 +1,45 @@
+<h1>User</h1>
+
+<p>
+    name: {{ user.username }}
+</p>
+
+<p>
+    first name:
+    {% if user.first_name %}
+        {{ user.first_name }}
+    {% else %}
+        none
+    {% endif %}
+</p>
+
+<p>
+    last name:
+    {% if user.last_name %}
+        {{ user.last_name }}
+    {% else %}
+        none
+    {% endif %}
+</p>
+<p>
+    email:
+    {% if user.email %}
+        {{ user.email }}
+    {% else %}
+        none
+    {% endif %}
+</p>
+<p>
+    staff:
+    {% if user.is_staff %}
+        yes
+    {% else %}
+        no
+    {% endif %}
+</p>
+
+<a href="{% url 'my_admin:user-update' user.username %}">Change</a>
+<br>
+<a href="{% url 'my_admin:user-delete' user.username %}">Delete</a>
+<br>
+<a href="{% url 'my_admin:home' %}">Back</a>

@@ -1,0 +1,8 @@
+<form method="post">
+    {% csrf_token %}
+    <h4>Do you want to delete {{ user_delete.username }}?</h4>
+    <p>
+        <button type="submit">Yes</button>
+        <a href="{% url 'my_admin:user-read' user_delete.username %}">No</a>
+    </p>
+</form>

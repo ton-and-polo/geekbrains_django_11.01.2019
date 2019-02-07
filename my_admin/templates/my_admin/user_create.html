@@ -1,0 +1,9 @@
+<h1>Create</h1>
+
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create new user</button>
+</form>
+
+<a href="{% url 'my_admin:home' %}">Back</a>

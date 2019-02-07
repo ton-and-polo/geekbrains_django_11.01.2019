@@ -19,5 +19,13 @@
             </li>
         </div>
 
+        {% if user.is_staff %}
+        <div class="admin">
+            <li>
+                <a href="{% url 'my_admin:home' %}">Admin</a>
+            </li>
+        </div>
+
+        {% endif %}
     </ul>
 </nav>

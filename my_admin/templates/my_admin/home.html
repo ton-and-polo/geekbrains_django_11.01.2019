@@ -1,0 +1,28 @@
+<h1>Admin</h1>
+
+<a href="{% url 'home' %}">Back to site</a>
+
+<h3>Users</h3>
+<ul>
+    {% for user in users %}
+        <li>
+            <a href="{% url 'my_admin:user-read' user.username %}">{{ user.username }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'my_admin:user-create'%}">Add user</a>
+
+<p>
+    Staff users:
+    {% for i in staff %}
+        {{ i.username }}
+    {% endfor %}
+</p>
+
+<p>
+    Non staff users:
+    {% for i in non_staff %}
+        {{ i.username }}
+    {% endfor %}
+</p>

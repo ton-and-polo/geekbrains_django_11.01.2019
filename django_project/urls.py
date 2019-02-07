@@ -40,6 +40,7 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('accounts/', include('accounts.urls')),
     path('cart/', include('shopping_cart.urls')),
+    path('my_admin/', include('my_admin.urls')),
 
     path('accounts/', include('django.contrib.auth.urls')),  # default auth.urls
 ]
