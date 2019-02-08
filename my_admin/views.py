@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth.decorators import user_passes_test
 
 
@@ -84,3 +84,21 @@ def user_create_view(request):
         'form': form
     }
     return render(request, 'my_admin/user_create.html', context)
+
+
+@user_passes_test(is_staff)
+def user_pwd_change_view(request, username):
+    user_update = User.objects.get(username=username)
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('my_admin:home', instance=user_update)
+    else:
+        form = PasswordChangeForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'my_admin/change_password.html', context)

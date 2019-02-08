@@ -15,6 +15,7 @@ def cart(request):
         amount += order.quantity
 
     context = {
+        'title': 'cart',
         'user_cart': user_cart,
         'price': price,
         'amount': amount
@@ -42,5 +43,7 @@ def remove_from_cart(request, id):
     if user_cart.quantity > 0:
         user_cart.quantity -= 1
         user_cart.save()
+    elif user_cart.quantity == 0:
+        user_cart.delete()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

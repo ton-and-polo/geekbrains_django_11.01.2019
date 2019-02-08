@@ -1,3 +1,7 @@
+{% extends 'my_admin/base_admin.html' %}
+
+{% block content %}
+
 <h1>Admin</h1>
 
 <a href="{% url 'home' %}">Back to site</a>
@@ -11,18 +15,27 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'my_admin:user-create'%}">Add user</a>
+<a href="{% url 'my_admin:user-create'%}">
+    <button class="btn btn-danger">
+        Add user
+    </button>
+</a>
 
-<p>
-    Staff users:
+<br>
+<br>
+
+<h6>Staff users:</h6>
+<ul>
     {% for i in staff %}
-        {{ i.username }}
+        <li>{{ i.username }}</li>
     {% endfor %}
-</p>
+</ul>
 
-<p>
-    Non staff users:
+<h6>Non staff users:</h6>
+<ul>
     {% for i in non_staff %}
-        {{ i.username }}
+        <li>{{ i.username }}</li>
     {% endfor %}
-</p>
+</ul>
+
+{% endblock %}

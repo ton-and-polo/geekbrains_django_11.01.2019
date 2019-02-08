@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
+from .models import Profile
+
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -40,3 +42,12 @@ class EditUserForm(UserChangeForm):
         ]
 
         exclude = []  # Fields your don't want in your form
+
+
+class EditProfile(forms.ModelForm):  # forms.Form?
+    class Meta:
+        model = Profile
+        fields = [
+            'age',
+            'user_avatar'
+        ]

@@ -1,9 +1,13 @@
+{% extends 'my_admin/base_admin.html' %}
+
+{% block content %}
 <h1>Update</h1>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit</button>
+    <button class="btn btn-danger" type="submit">Submit</button>
 </form>
-
+<br>
 <a href="{% url 'my_admin:home' %}">Back</a>
+{% endblock %}

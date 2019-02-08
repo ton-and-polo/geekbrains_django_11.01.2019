@@ -1,65 +1,7 @@
-
-h1 {
-    color: red;
+a:hover {
+	text-decoration: none;
 }
 
-a {
-  text-decoration: none
-}
-
-.login {
-  margin: 20px;
-}
-
-.thumbnail {
-  width: 100px;
-}
-
-.thumbnail img {
-  max-width: 100%;
-  height: auto;
-}
-
-.date p {
-  opacity: 0.3;
-}
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li a {
-  color: #000;
-  padding: 8px 16px;
-}
-
-.navbar li a:hover {
-  color: gray;
-}
-
-.cart_badge span {
-  padding: 2px 3px;
-  border-radius: 30px;
-  background-color: red;
-  color: white;
-  font-size: 12px;
-}
-
-.cart_badge {
-  top: 0px;
-  left: 45px;
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.admin li a {
-  color:rgb(44, 119, 34);
+.helptext {
+	display: none;
 }

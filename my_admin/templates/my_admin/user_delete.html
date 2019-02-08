@@ -1,8 +1,16 @@
+{% extends 'my_admin/base_admin.html' %}
+
+{% block content %}
+<br>
 <form method="post">
     {% csrf_token %}
-    <h4>Do you want to delete {{ user_delete.username }}?</h4>
-    <p>
-        <button type="submit">Yes</button>
-        <a href="{% url 'my_admin:user-read' user_delete.username %}">No</a>
-    </p>
+    <h5>Do you want to delete {{ user_delete.username }}?</h5>
+    <button class="btn btn-danger" type="submit">Yes</button>
 </form>
+<a href="{% url 'my_admin:user-read' user_delete.username %}">
+    <button class="btn btn-light">
+        No
+    </button>
+</a>
+
+{% endblock %}

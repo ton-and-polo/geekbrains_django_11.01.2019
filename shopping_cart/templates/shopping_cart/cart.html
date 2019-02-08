@@ -2,34 +2,45 @@
 
 {%  block content%}
     <h1>Cart</h1>
+    <br>
+    {% if amount != 0 %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in  user_cart %}
+                <tr>
+                    <td>{{ order.product.title }}</td>
+                    <td>{{ order.product.category }}</td>
+                    <td>$ {{ order.product.price }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>
+                        <a href="{% url 'shopping_cart:add_to_cart' order.product.id %}">
+                            <button class="btn btn-success">Add</button>
+                        </a>
 
-    <h3>Items:</h3>
-    <ul>
-        {% for order in  user_cart %}
-            <li>
-                {{ order.product.title }}, amount: {{ order.quantity }}
-                {% if order.quantity <= 1 %}
-                    pc
-                {% else %}
-                    pcs
-                {% endif %}
-                <button>
-                    <a href="{% url 'shopping_cart:add_to_cart' order.product.id %}">
-                        Add
-                    </a>
-                </button>
-                <button>
-                    <a href="{% url 'shopping_cart:remove_from_cart' order.product.id %}">
-                        Remove
-                    </a>
-                </button>
-            </li>
-        {% endfor %}
-    </ul>
+                        <a href="{% url 'shopping_cart:remove_from_cart' order.product.id %}">
+                            <button class="btn btn-secondary">Remove</button>
+                        </a>
+                    </td>
+                </tr>
 
-    <p>
-        All items: {{ amount }}, USD {{ price }}
-    </p>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <h5>
+        All items: {{ amount }}, $ {{ price }}
+    </h5>
 
 
 {% endblock %}

@@ -2,12 +2,18 @@
 
 {% block content %}
     <h1>Profile</h1>
-    <div class="thumbnail">
-        <img src="{{ user.profile.user_avatar.url }}" alt="user_avatar">
-    </div>
-    <p>Hello, {{ user.username }}!</p>
-    <p>Your age: {{ user.profile.age }}</p>
+    <br>
+    {% if user.profile.user_avatar %}
+        <img src="{{ user.profile.user_avatar.url }}" class="img-thumbnail" alt="user_avatar" width="100" height="auto">
+    {% endif %}
 
-    <a href="{% url 'logout' %}">Logout</a>
+    <p>Hello, {{ user.username }}!</p>
+    {% if user.profile.age %}
+        <p>Your age: {{ user.profile.age }}</p>
+    {% endif %}
+
+    <a href="{% url 'accounts:profile_update' %}">
+        Change your profile
+    </a>
 
 {% endblock %}

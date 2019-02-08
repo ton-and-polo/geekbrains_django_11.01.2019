@@ -19,6 +19,7 @@ def products_list_view(request, category_name):
 
 
     context = {
+        "title": "products",
         "products": products,
         "categories": categories,
         "user_cart": user_cart,

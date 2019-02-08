@@ -1,3 +1,6 @@
+{% extends 'my_admin/base_admin.html' %}
+
+{% block content %}
 <h1>User</h1>
 
 <p>
@@ -42,4 +45,8 @@
 <br>
 <a href="{% url 'my_admin:user-delete' user.username %}">Delete</a>
 <br>
+<!--<a href="{% url 'my_admin:user-change-pwd' user.username %}">Change pwd</a>-->
+<!--<br>-->
 <a href="{% url 'my_admin:home' %}">Back</a>
+
+{% endblock %}

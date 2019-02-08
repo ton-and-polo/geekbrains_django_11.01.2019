@@ -1,9 +1,15 @@
+{% extends 'my_admin/base_admin.html' %}
+
+{% block content %}
 <h1>Create</h1>
 
 <form action="." method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Create new user</button>
+    <button class="btn btn-danger" type="submit">Create new user</button>
 </form>
 
+<br>
+
 <a href="{% url 'my_admin:home' %}">Back</a>
+{% endblock %}
