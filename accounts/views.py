@@ -18,6 +18,7 @@ def register_view(request):
         if user_form.is_valid():
             user_form.save()
             new_user = user_form.save()
+            # Create profile for new user:
             Profile.objects.create(user_id=new_user.id)
             # Login your new user:
             login(request, new_user)
@@ -44,7 +45,7 @@ def profile_update_view(request):
 
     form = EditProfile(instance=instance)
     if request.method == 'POST':
-        form = EditProfile(request.POST, instance=instance)
+        form = EditProfile(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
             return redirect('accounts:profile')

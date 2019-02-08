@@ -44,7 +44,7 @@ class EditUserForm(UserChangeForm):
         exclude = []  # Fields your don't want in your form
 
 
-class EditProfile(forms.ModelForm):  # forms.Form?
+class EditProfile(forms.ModelForm):
     class Meta:
         model = Profile
         fields = [
