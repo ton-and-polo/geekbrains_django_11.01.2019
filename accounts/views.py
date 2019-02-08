@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import (
     login,
@@ -7,6 +6,7 @@ from django.contrib.auth import (
 )
 
 from .forms import EditProfile
+from .models import Profile
 
 # Create your views here.
 
@@ -18,6 +18,7 @@ def register_view(request):
         if user_form.is_valid():
             user_form.save()
             new_user = user_form.save()
+            Profile.objects.create(user_id=new_user.id)
             # Login your new user:
             login(request, new_user)
             return redirect('accounts:profile')
@@ -35,10 +36,15 @@ def profile_view(request):
     return render(request, 'accounts/profile.html', context)
 
 
+# Fix(doesn't upload user_photo)!
 def profile_update_view(request):
-    form = EditProfile(instance=request.user)
+    user_id = request.user.id
+
+    instance = get_object_or_404(Profile, user_id=user_id)
+
+    form = EditProfile(instance=instance)
     if request.method == 'POST':
-        form = EditProfile(request.POST, instance=request.user)
+        form = EditProfile(request.POST, instance=instance)
         if form.is_valid():
             form.save()
             return redirect('accounts:profile')
