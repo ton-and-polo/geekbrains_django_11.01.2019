@@ -4,16 +4,21 @@
 
 <h1>Admin</h1>
 
-<a href="{% url 'home' %}">Back to site</a>
+<a href="{% url 'home' %}">
+    <button class="btn btn-secondary">
+        Back to site
+    </button>
+</a>
+
+<br>
 
 <h3>Users</h3>
-<ul>
+<p>
     {% for user in users %}
-        <li>
-            <a href="{% url 'my_admin:user-read' user.username %}">{{ user.username }}</a>
-        </li>
+        <a href="{% url 'my_admin:user-read' user.username %}">{{ user.username }}</a>
+        <br>
     {% endfor %}
-</ul>
+</p>
 
 <a href="{% url 'my_admin:user-create'%}">
     <button class="btn btn-danger">
