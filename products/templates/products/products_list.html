@@ -14,24 +14,30 @@
 
 
     <h3>Products:</h3>
-    <ul>
-        {% for product in products %}
-            <li>
-                <a href="{{ product.get_absolute_url }}">
-                    {{ product.title }}
-                </a>
 
-                <br>
+    {% for product in products %}
+        <p>
+            <a href="{{ product.get_absolute_url }}">
+                {{ product.title }}
+            </a>
+            $ {{ product.price }}
+        </p>
 
-                {% if user.is_authenticated %}
-                    <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
-                        <button class="btn btn-success">Add to cart</button>
-                    </a>
-                {% endif %}
-            </li>
+
+
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'shopping_cart:add_to_cart' product.id %}">
+                <button class="btn btn-warning">Add to cart</button>
+            </a>
 
             <br>
+            <br>
 
-        {% endfor %}
-    </ul>
+        {% endif %}
+
+
+
+    {% endfor %}
+
 {% endblock %}
