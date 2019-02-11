@@ -31,15 +31,15 @@
 
 <h6>Staff users:</h6>
 <ul>
-    {% for i in staff %}
-        <li>{{ i.username }}</li>
+    {% for user in staff %}
+        <li>{{ user.username }}</li>
     {% endfor %}
 </ul>
 
 <h6>Non staff users:</h6>
 <ul>
-    {% for i in non_staff %}
-        <li>{{ i.username }}</li>
+    {% for user in non_staff %}
+        <li>{{ user.username }}</li>
     {% endfor %}
 </ul>
 

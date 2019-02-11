@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 
 from .models import Product, Category
 from shopping_cart.models import ShoppingCart
@@ -11,7 +12,13 @@ def products_list_view(request, category_name):
     user_cart = ShoppingCart.objects.filter(user=request.user.id)
 
     if category_name == 'all':
-        products = Product.objects.all()
+        # products = Product.objects.all()
+
+        # Pagination:
+        products_list = Product.objects.all()
+        paginator = Paginator(products_list, 1)  # Show one on the page
+        page = request.GET.get('page')
+        products = paginator.get_page(page)
     else:
         category = Category.objects.filter(category_name=category_name)[0]
         products = Product.objects.filter(category=category)
